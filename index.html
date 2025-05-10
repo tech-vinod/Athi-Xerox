@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Xerox Shop</title>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <!-- Css Style Sheet-->
+   <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+  <!-- Top Bar -->
+  <div class="top-bar">
+    <div class="contact-info">
+      <span><i class="fas fa-phone"></i> +91 77081 95859</span>
+      <span><i class="fas fa-map-marker-alt"></i> Pudukkottai, Tuticorin.</span>
+    </div>
+    <div class="social-icons">
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-linkedin-in"></i></a>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-logo">
+      <img src="https://1000logos.net/wp-content/uploads/2017/05/Xerox-Logo-2008.png" alt="Logo">
+    </div>
+    <div class="nav-links">
+      <a href="#" class="active">Home</a>
+      <a href="#">About Us</a>
+      <a href="#">Stack</a>
+      <a href="#">Services</a>
+      <a href="#">Projects</a>
+      <a href="#">Contact</a>
+    </div>
+    <div class="nav-contact">
+      <a href="tel:+91 770819 5859" class="contact-button">Enquiry</a>
+    </div>
+  </nav>
+
+  <!-- Slideshow -->
+  <div class="slideshow-container">
+    <div class="slide fade">
+      <img src="https://t4.ftcdn.net/jpg/05/75/93/79/360_F_575937993_qeJmAB8wGLM0KtG6Oc9k5cyTCHuR82NK.jpg" alt="Slide 1">
+    </div>
+    <div class="slide fade">
+      <img src="https://t4.ftcdn.net/jpg/01/77/45/71/360_F_177457159_3dnxkG0rPQbG7u9mSZbaoSjwBX7mwWtq.jpg" alt="Slide 2">
+    </div>
+    <div class="slide fade">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6Urwer1YxX8H8JAyFSo_drmbG4hYKFJq_nIXMkycjmFr8wgzi_SWSw6n-e2NyuX5nm0k&usqp=CAU" alt="Slide 3">
+    </div>
+  </div>
+
+  <!-- Navigation Dots -->
+  <div class="dots-container">
+    <span class="dot" onclick="currentSlide(1)"></span>
+    <span class="dot" onclick="currentSlide(2)"></span>
+    <span class="dot" onclick="currentSlide(3)"></span>
+  </div>
+
+  <!-- Ad Popup -->
+  <div id="ad-popup" class="ad-popup">
+    <div class="ad-content">
+      <span class="ad-close" onclick="closeAdPopup()">&times;</span>
+      <h2>Special Offer!</h2>
+      <p>Get 25% off on our services. Limited time only!</p>
+      <a href="#" class="ad-button">Claim Offer</a>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script>
+    let slideIndex = 0;
+    let slides = document.getElementsByClassName("slide");
+    let dots = document.getElementsByClassName("dot");
+
+    function showSlidesAuto() {
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+
+      slideIndex++;
+      if (slideIndex > slides.length) { slideIndex = 1; }
+
+      for (let i = 0; i < dots.length; i++) {
+        dots[i].classList.remove("active");
+      }
+
+      slides[slideIndex - 1].style.display = "block";
+      dots[slideIndex - 1].classList.add("active");
+      setTimeout(showSlidesAuto, 3000);
+    }
+
+    function currentSlide(n) {
+      slideIndex = n - 1;
+      showSlideManual(slideIndex);
+    }
+
+    function showSlideManual(n) {
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+        dots[i].classList.remove("active");
+      }
+
+      slides[n].style.display = "block";
+      dots[n].classList.add("active");
+    }
+
+    window.onload = function () {
+      showSlidesAuto();
+      document.getElementById('ad-popup').style.display = 'flex';
+    }
+
+    function closeAdPopup() {
+      document.getElementById('ad-popup').style.display = 'none';
+    }
+  </script>
+
+</body>
+</html>

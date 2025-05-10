@@ -1,344 +1,398 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Xerox Shop</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Xerox Shop</title>
 
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-        }
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
 
-        /* Top Bar */
-        .top-bar {
-            background: #f5f5f5;
-            padding: 10px 20px;
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-        }
+    /* Top Bar */
+    .top-bar {
+      background: #f5f5f5;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
 
-        .contact-info,
-        .social-icons {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
+    .contact-info, .social-icons {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
 
-        .contact-info {
-            margin-left: 50px;
-        }
+    .contact-info {
+      margin-left: 50px;
+    }
 
-        .social-icons {
-            margin-right: 50px;
-        }
+    .social-icons {
+      margin-right: 50px;
+    }
 
-        .social-icons a {
-            color: #333;
-            font-size: 1.2rem;
-            text-decoration: none;
-        }
+    .social-icons a {
+      color: #333;
+      font-size: 1.2rem;
+      text-decoration: none;
+    }
 
-        /* Navigation */
-        nav {
-            background: #fff;
-            padding: 10px 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
+    /* Navigation */
+    nav {
+      background: #fff;
+      padding: 10px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
 
-        .nav-logo img {
-            width: 100px;
-            margin-left: 200px;
-        }
+    .nav-logo img {
+      width: 100px;
+      margin-left: 200px;
+    }
 
-        .nav-links {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
+    .nav-links {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
 
-        .nav-links a {
-            text-decoration: none;
-            color: #333;
-            padding: 8px 12px;
-            border-radius: 5px;
-        }
+    .nav-links a {
+      text-decoration: none;
+      color: #333;
+      padding: 8px 12px;
+      border-radius: 5px;
+    }
 
-        .nav-links a.active,
-        .nav-links a:hover {
-            background-color: #ff4400;
-            color: white;
-        }
+    .nav-links a.active,
+    .nav-links a:hover {
+      background-color: #ff4400;
+      color: white;
+    }
 
-        .nav-contact {
-            margin-right: 200px;
-        }
+    .nav-contact {
+      margin-right: 200px;
+    }
 
-        .contact-button {
-            background: #ff4400;
-            color: white;
-            padding: 8px 15px;
-            text-decoration: none;
-            border-radius: 5px;
-        }
+    .contact-button {
+      background: #ff4400;
+      color: white;
+      padding: 8px 15px;
+      text-decoration: none;
+      border-radius: 5px;
+    }
 
-        /* Slideshow */
-        .slideshow-container {
-            width: 100%;
-            overflow: hidden;
-        }
+    /* Slideshow */
+    .slideshow-container {
+      width: 100%;
+      overflow: hidden;
+    }
 
-        .slide {
-            display: none;
-        }
+    .slide {
+      display: none;
+    }
 
-        .slide img {
-            width: 100%;
-            height: 600px;
-        }
+    .slide img {
+      width: 100%;
+      height: 600px;
+      object-fit: cover;
+    }
 
-        .dots-container {
-            text-align: center;
-            padding: 10px 0;
-        }
+    .dots-container {
+      text-align: center;
+      padding: 10px 0;
+    }
 
-        .dot {
-            height: 12px;
-            width: 12px;
-            margin: 0 4px;
-            background-color: #bbb;
-            border-radius: 50%;
-            display: inline-block;
-            cursor: pointer;
-        }
+    .dot {
+      height: 12px;
+      width: 12px;
+      margin: 0 4px;
+      background-color: #bbb;
+      border-radius: 50%;
+      display: inline-block;
+      cursor: pointer;
+    }
 
-        .dot.active {
-            background-color: #ff4400;
-        }
+    .dot.active {
+      background-color: #ff4400;
+    }
 
-        /* Ad Popup */
-        .ad-popup {
-            display: none;
-            position: fixed;
-            z-index: 9999;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.6);
-            justify-content: center;
-            align-items: center;
-        }
+    /* Ad Popup */
+    .ad-popup {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      justify-content: center;
+      align-items: center;
+    }
 
-        .ad-content {
-            background: white;
-            padding: 2rem;
-            border-radius: 8px;
-            text-align: center;
-            position: relative;
-            max-width: 350px;
-        }
+    .ad-content {
+      background: white;
+      padding: 2rem;
+      border-radius: 8px;
+      text-align: center;
+      position: relative;
+      max-width: 350px;
+    }
 
-        .ad-close {
-            position: absolute;
-            top: 10px;
-            right: 20px;
-            font-size: 20px;
-            cursor: pointer;
-        }
+    .ad-close {
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      font-size: 20px;
+      cursor: pointer;
+    }
 
-        .ad-button {
-            display: inline-block;
-            margin-top: 1rem;
-            padding: 0.5rem 1rem;
-            background: #ff4400;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-        }
+    .ad-button {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.5rem 1rem;
+      background: #ff4400;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+    }
 
-        /* Responsive */
-        @media (max-width: 992px) {
-            .nav-logo img {
-                margin-left: 50px;
-            }
+    /* WhatsApp Icon Section */
+    .video_bt {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 60px 0;
+    }
 
-            .nav-contact {
-                margin-right: 50px;
-            }
+    .play_icon {
+      position: relative;
+      width: 90px;
+      height: 90px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-            .contact-info {
-                margin-left: 30px;
-            }
+    .play_icon img {
+      width: 60px;
+      z-index: 5;
+    }
 
-            .social-icons {
-                margin-right: 30px;
-            }
-        }
+    .play_icon::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 90px;
+      height: 90px;
+      background-color: #25d366;
+      border-radius: 50%;
+      animation: fadeEffect 1.3s infinite ease;
+      transform: translate(-50%, -50%);
+      z-index: 1;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    }
 
-        @media (max-width: 768px) {
-            .top-bar {
-                flex-direction: column;
-                align-items: flex-start;
-            }
+    @keyframes fadeEffect {
+      0% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: translate(-50%, -50%) scale(1.4);
+        opacity: 0;
+      }
+    }
 
-            .contact-info,
-            .social-icons {
-                margin: 5px 15px;
-                flex-wrap: wrap;
-            }
+    /* Responsive */
+    @media (max-width: 992px) {
+      .nav-logo img {
+        margin-left: 50px;
+      }
 
-            nav {
-                flex-direction: column;
-                align-items: center;
-                gap: 10px;
-            }
+      .nav-contact {
+        margin-right: 50px;
+      }
 
-            .nav-logo img {
-                margin-left: 0;
-            }
+      .contact-info {
+        margin-left: 30px;
+      }
 
-            .nav-contact {
-                margin-right: 0;
-            }
+      .social-icons {
+        margin-right: 30px;
+      }
+    }
 
-            .nav-links {
-                flex-direction: column;
-                align-items: center;
-                width: 100%;
-            }
+    @media (max-width: 768px) {
+      .top-bar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
 
-            .contact-button {
-                margin-bottom: 10px;
-            }
-        }
-    </style>
+      .contact-info,
+      .social-icons {
+        margin: 5px 15px;
+        flex-wrap: wrap;
+      }
+
+      nav {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .nav-logo img {
+        margin-left: 0;
+      }
+
+      .nav-contact {
+        margin-right: 0;
+      }
+
+      .nav-links {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+      }
+
+      .contact-button {
+        margin-bottom: 10px;
+      }
+
+      .slide img {
+        height: 300px;
+      }
+    }
+  </style>
 </head>
-
 <body>
 
-    <!-- Top Bar -->
-    <div class="top-bar">
-        <div class="contact-info">
-            <span><i class="fas fa-phone"></i> +91 77081 95859</span>
-            <span><i class="fas fa-map-marker-alt"></i> Pudukkottai, Tuticorin.</span>
-        </div>
-        <div class="social-icons">
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
-            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-        </div>
+  <!-- Top Bar -->
+  <div class="top-bar">
+    <div class="contact-info">
+      <span><i class="fas fa-phone"></i> +91 77081 95859</span>
+      <span><i class="fas fa-map-marker-alt"></i> Pudukkottai, Tuticorin.</span>
     </div>
-
-    <!-- Navigation -->
-    <nav>
-        <div class="nav-logo">
-            <img src="https://1000logos.net/wp-content/uploads/2017/05/Xerox-Logo-2008.png" alt="Logo">
-        </div>
-        <div class="nav-links">
-            <a href="#" class="active">Home</a>
-            <a href="#">About Us</a>
-            <a href="#">Stack</a>
-            <a href="#">Services</a>
-            <a href="#">Projects</a>
-            <a href="#">Contact</a>
-        </div>
-        <div class="nav-contact">
-            <a href="tel:+91 770819 5859" class="contact-button">Enquiry</a>
-        </div>
-    </nav>
-
-    <!-- Slideshow -->
-    <div class="slideshow-container">
-        <div class="slide fade">
-            <img src="https://t4.ftcdn.net/jpg/05/75/93/79/360_F_575937993_qeJmAB8wGLM0KtG6Oc9k5cyTCHuR82NK.jpg"
-                alt="Slide 1">
-        </div>
-        <div class="slide fade">
-            <img src="https://t4.ftcdn.net/jpg/01/77/45/71/360_F_177457159_3dnxkG0rPQbG7u9mSZbaoSjwBX7mwWtq.jpg"
-                alt="Slide 2">
-        </div>
-        <div class="slide fade">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6Urwer1YxX8H8JAyFSo_drmbG4hYKFJq_nIXMkycjmFr8wgzi_SWSw6n-e2NyuX5nm0k&usqp=CAU"
-                alt="Slide 3">
-        </div>
+    <div class="social-icons">
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-linkedin-in"></i></a>
     </div>
+  </div>
 
-    <!-- Navigation Dots -->
-    <div class="dots-container">
-        <span class="dot" onclick="currentSlide(1)"></span>
-        <span class="dot" onclick="currentSlide(2)"></span>
-        <span class="dot" onclick="currentSlide(3)"></span>
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-logo">
+      <img src="https://1000logos.net/wp-content/uploads/2017/05/Xerox-Logo-2008.png" alt="Logo">
     </div>
-
-    <!-- Ad Popup -->
-    <div id="ad-popup" class="ad-popup">
-        <div class="ad-content">
-            <span class="ad-close" onclick="closeAdPopup()">&times;</span>
-            <h2>Special Offer!</h2>
-            <p>Get 25% off on our services. Limited time only!</p>
-            <a href="#" class="ad-button">Claim Offer</a>
-        </div>
+    <div class="nav-links">
+      <a href="#" class="active">Home</a>
+      <a href="#">About Us</a>
+      <a href="#">Stack</a>
+      <a href="#">Services</a>
+      <a href="#">Projects</a>
+      <a href="#">Contact</a>
     </div>
+    <div class="nav-contact">
+      <a href="tel:+917708195859" class="contact-button">Enquiry</a>
+    </div>
+  </nav>
 
-    <!-- Scripts -->
-    <script>
-        let slideIndex = 0;
-        let slides = document.getElementsByClassName("slide");
-        let dots = document.getElementsByClassName("dot");
+  <!-- Slideshow -->
+  <div class="slideshow-container">
+    <div class="slide fade">
+      <img src="https://t4.ftcdn.net/jpg/05/75/93/79/360_F_575937993_qeJmAB8wGLM0KtG6Oc9k5cyTCHuR82NK.jpg" alt="Slide 1">
+    </div>
+    <div class="slide fade">
+      <img src="https://t4.ftcdn.net/jpg/01/77/45/71/360_F_177457159_3dnxkG0rPQbG7u9mSZbaoSjwBX7mwWtq.jpg" alt="Slide 2">
+    </div>
+    <div class="slide fade">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6Urwer1YxX8H8JAyFSo_drmbG4hYKFJq_nIXMkycjmFr8wgzi_SWSw6n-e2NyuX5nm0k&usqp=CAU" alt="Slide 3">
+    </div>
+  </div>
 
-        function showSlidesAuto() {
-            for (let i = 0; i < slides.length; i++) {
-                slides[i].style.display = "none";
-            }
+  <!-- Navigation Dots -->
+  <div class="dots-container">
+    <span class="dot" onclick="currentSlide(1)"></span>
+    <span class="dot" onclick="currentSlide(2)"></span>
+    <span class="dot" onclick="currentSlide(3)"></span>
+  </div>
 
-            slideIndex++;
-            if (slideIndex > slides.length) { slideIndex = 1; }
+  <!-- WhatsApp Icon Section -->
+  <div class="video_bt">
+    <a href="https://api.whatsapp.com/send?phone=917708195859&text=Hi%20This%20Athi%20Xerox%20any%20help%20you" target="_blank" class="play_icon">
+      <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp">
+    </a>
+  </div>
 
-            for (let i = 0; i < dots.length; i++) {
-                dots[i].classList.remove("active");
-            }
+  <!-- Ad Popup -->
+  <div id="ad-popup" class="ad-popup">
+    <div class="ad-content">
+      <span class="ad-close" onclick="closeAdPopup()">&times;</span>
+      <h2>Special Offer!</h2>
+      <p>Get 25% off on our services. Limited time only!</p>
+      <a href="#" class="ad-button">Claim Offer</a>
+    </div>
+  </div>
 
-            slides[slideIndex - 1].style.display = "block";
-            dots[slideIndex - 1].classList.add("active");
-            setTimeout(showSlidesAuto, 3000);
-        }
+  <!-- Scripts -->
+  <script>
+    let slideIndex = 0;
+    let slides = document.getElementsByClassName("slide");
+    let dots = document.getElementsByClassName("dot");
 
-        function currentSlide(n) {
-            slideIndex = n - 1;
-            showSlideManual(slideIndex);
-        }
+    function showSlidesAuto() {
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
 
-        function showSlideManual(n) {
-            for (let i = 0; i < slides.length; i++) {
-                slides[i].style.display = "none";
-                dots[i].classList.remove("active");
-            }
+      slideIndex++;
+      if (slideIndex > slides.length) { slideIndex = 1; }
 
-            slides[n].style.display = "block";
-            dots[n].classList.add("active");
-        }
+      for (let i = 0; i < dots.length; i++) {
+        dots[i].classList.remove("active");
+      }
 
-        window.onload = function () {
-            showSlidesAuto();
-            document.getElementById('ad-popup').style.display = 'flex';
-        }
+      slides[slideIndex - 1].style.display = "block";
+      dots[slideIndex - 1].classList.add("active");
+      setTimeout(showSlidesAuto, 3000);
+    }
 
-        function closeAdPopup() {
-            document.getElementById('ad-popup').style.display = 'none';
-        }
-    </script>
+    function currentSlide(n) {
+      slideIndex = n - 1;
+      showSlideManual(slideIndex);
+    }
+
+    function showSlideManual(n) {
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+        dots[i].classList.remove("active");
+      }
+
+      slides[n].style.display = "block";
+      dots[n].classList.add("active");
+    }
+
+    window.onload = function () {
+      showSlidesAuto();
+      document.getElementById('ad-popup').style.display = 'flex';
+    }
+
+    function closeAdPopup() {
+      document.getElementById('ad-popup').style.display = 'none';
+    }
+  </script>
 
 </body>
-
 </html>

@@ -4,8 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Xerox Shop</title>
-
-  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
     body {
@@ -13,7 +11,6 @@
       font-family: Arial, sans-serif;
     }
 
-    /* Top Bar */
     .top-bar {
       background: #f5f5f5;
       padding: 10px 20px;
@@ -42,7 +39,6 @@
       text-decoration: none;
     }
 
-    /* Navigation */
     nav {
       background: #fff;
       padding: 10px 0;
@@ -90,7 +86,6 @@
       border-radius: 5px;
     }
 
-    /* Slideshow */
     .slideshow-container {
       width: 100%;
       overflow: hidden;
@@ -125,7 +120,6 @@
       background-color: #ff4400;
     }
 
-    /* Ad Popup */
     .ad-popup {
       display: none;
       position: fixed;
@@ -166,29 +160,25 @@
       border-radius: 5px;
     }
 
-    /* WhatsApp Floating Button */
     .video_bt {
       position: fixed;
       bottom: 20px;
       right: 20px;
-      z-index: 9999;
-    }
-
-    .play_icon {
-      position: relative;
+      z-index: 999;
     }
 
     .play_icon img {
       width: 60px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      border-radius: 50%;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s;
       cursor: pointer;
     }
 
-    .play_icon img.clicked {
-      transform: scale(1.4);
-      box-shadow: 0 0 20px #25d366;
+    .play_icon img:hover {
+      transform: scale(1.3);
+    }
+
+    .play_icon {
+      position: relative;
     }
 
     .play_icon::before {
@@ -199,88 +189,36 @@
       width: 90px;
       height: 90px;
       transform: translate(-50%, -50%);
-      background-color: #25d366;
-      border-radius: 50%;
+      background-color: #29f55f;
+      border-radius: 100%;
       animation: fadeEffect 1.3s infinite ease;
       z-index: -1;
-      opacity: 0.4;
     }
 
     @keyframes fadeEffect {
       0% {
         transform: translate(-50%, -50%) scale(1);
-        opacity: 0.4;
+        opacity: 1;
       }
       100% {
-        transform: translate(-50%, -50%) scale(1.6);
+        transform: translate(-50%, -50%) scale(1.4);
         opacity: 0;
       }
     }
 
-    /* Responsive */
-    @media (max-width: 992px) {
-      .nav-logo img {
-        margin-left: 50px;
-      }
-
-      .nav-contact {
-        margin-right: 50px;
-      }
-
-      .contact-info {
-        margin-left: 30px;
-      }
-
-      .social-icons {
-        margin-right: 30px;
-      }
-    }
-
     @media (max-width: 768px) {
-      .top-bar {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .contact-info,
-      .social-icons {
-        margin: 5px 15px;
-        flex-wrap: wrap;
-      }
-
-      nav {
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-      }
-
-      .nav-logo img {
-        margin-left: 0;
-      }
-
-      .nav-contact {
-        margin-right: 0;
-      }
-
-      .nav-links {
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-      }
-
-      .contact-button {
-        margin-bottom: 10px;
-      }
-
-      .play_icon img {
-        width: 50px;
-      }
+      .nav-logo img { margin-left: 50px; }
+      .nav-contact { margin-right: 50px; }
+      .top-bar { flex-direction: column; align-items: flex-start; }
+      .contact-info, .social-icons { margin: 5px 15px; flex-wrap: wrap; }
+      nav { flex-direction: column; align-items: center; gap: 10px; }
+      .nav-links { flex-direction: column; align-items: center; width: 100%; }
+      .contact-button { margin-bottom: 10px; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Top Bar -->
   <div class="top-bar">
     <div class="contact-info">
       <span><i class="fas fa-phone"></i> +91 77081 95859</span>
@@ -293,7 +231,6 @@
     </div>
   </div>
 
-  <!-- Navigation -->
   <nav>
     <div class="nav-logo">
       <img src="https://1000logos.net/wp-content/uploads/2017/05/Xerox-Logo-2008.png" alt="Logo">
@@ -307,11 +244,10 @@
       <a href="#">Contact</a>
     </div>
     <div class="nav-contact">
-      <a href="tel:+917708195859" class="contact-button">Enquiry</a>
+      <a href="tel:+91 770819 5859" class="contact-button">Enquiry</a>
     </div>
   </nav>
 
-  <!-- Slideshow -->
   <div class="slideshow-container">
     <div class="slide fade">
       <img src="slide-1.jpg" alt="Slide 1">
@@ -323,15 +259,12 @@
       <img src="slide-3.jpg" alt="Slide 3">
     </div>
   </div>
-
-  <!-- Navigation Dots -->
   <div class="dots-container">
     <span class="dot" onclick="currentSlide(1)"></span>
     <span class="dot" onclick="currentSlide(2)"></span>
     <span class="dot" onclick="currentSlide(3)"></span>
   </div>
 
-  <!-- Ad Popup -->
   <div id="ad-popup" class="ad-popup">
     <div class="ad-content">
       <span class="ad-close" onclick="closeAdPopup()">&times;</span>
@@ -341,16 +274,12 @@
     </div>
   </div>
 
-  <!-- WhatsApp Button -->
   <div class="video_bt">
     <div class="play_icon">
-      <a href="https://api.whatsapp.com/send?phone=917708195859&text=Hi%20This%20Athi%20Xerox%20any%20help%20you" target="_blank">
-        <img id="whatsapp-icon" src="https://cdn-icons-png.flaticon.com/512/124/124034.png" alt="WhatsApp">
-      </a>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
     </div>
   </div>
 
-  <!-- Scripts -->
   <script>
     let slideIndex = 0;
     let slides = document.getElementsByClassName("slide");
@@ -360,14 +289,11 @@
       for (let i = 0; i < slides.length; i++) {
         slides[i].style.display = "none";
       }
-
       slideIndex++;
       if (slideIndex > slides.length) { slideIndex = 1; }
-
       for (let i = 0; i < dots.length; i++) {
         dots[i].classList.remove("active");
       }
-
       slides[slideIndex - 1].style.display = "block";
       dots[slideIndex - 1].classList.add("active");
       setTimeout(showSlidesAuto, 3000);
@@ -383,7 +309,6 @@
         slides[i].style.display = "none";
         dots[i].classList.remove("active");
       }
-
       slides[n].style.display = "block";
       dots[n].classList.add("active");
     }
@@ -392,19 +317,23 @@
       document.getElementById('ad-popup').style.display = 'none';
     }
 
+    // Title auto changer
+    const titles = [
+      "Welcome to Athi Xerox Shop!",
+      "Get 25% Off – Limited Time!",
+      "Fast & Reliable Printing",
+      "Call Now: +91 77081 95859"
+    ];
+    let titleIndex = 0;
+    setInterval(() => {
+      document.title = titles[titleIndex];
+      titleIndex = (titleIndex + 1) % titles.length;
+    }, 3000);
+
     window.onload = function () {
       showSlidesAuto();
       document.getElementById('ad-popup').style.display = 'flex';
-    };
-
-    // WhatsApp icon animation
-    const whatsappIcon = document.getElementById("whatsapp-icon");
-    whatsappIcon.addEventListener("click", function () {
-      this.classList.add("clicked");
-      setTimeout(() => {
-        this.classList.remove("clicked");
-      }, 300);
-    });
+    }
   </script>
 
 </body>

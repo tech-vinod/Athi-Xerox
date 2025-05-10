@@ -166,27 +166,29 @@
       border-radius: 5px;
     }
 
-    /* WhatsApp Icon Section */
+    /* WhatsApp Floating Button */
     .video_bt {
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 60px 0;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 9999;
     }
 
     .play_icon {
       position: relative;
-      width: 90px;
-      height: 90px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
     }
 
     .play_icon img {
       width: 60px;
-      z-index: 5;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border-radius: 50%;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      cursor: pointer;
+    }
+
+    .play_icon img.clicked {
+      transform: scale(1.4);
+      box-shadow: 0 0 20px #25d366;
     }
 
     .play_icon::before {
@@ -196,21 +198,21 @@
       left: 50%;
       width: 90px;
       height: 90px;
+      transform: translate(-50%, -50%);
       background-color: #25d366;
       border-radius: 50%;
       animation: fadeEffect 1.3s infinite ease;
-      transform: translate(-50%, -50%);
-      z-index: 1;
-      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+      z-index: -1;
+      opacity: 0.4;
     }
 
     @keyframes fadeEffect {
       0% {
         transform: translate(-50%, -50%) scale(1);
-        opacity: 1;
+        opacity: 0.4;
       }
       100% {
-        transform: translate(-50%, -50%) scale(1.4);
+        transform: translate(-50%, -50%) scale(1.6);
         opacity: 0;
       }
     }
@@ -270,8 +272,8 @@
         margin-bottom: 10px;
       }
 
-      .slide img {
-        height: 300px;
+      .play_icon img {
+        width: 50px;
       }
     }
   </style>
@@ -329,13 +331,6 @@
     <span class="dot" onclick="currentSlide(3)"></span>
   </div>
 
-  <!-- WhatsApp Icon Section -->
-  <div class="video_bt">
-    <a href="https://api.whatsapp.com/send?phone=917708195859&text=Hi%20This%20Athi%20Xerox%20any%20help%20you" target="_blank" class="play_icon">
-      <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp">
-    </a>
-  </div>
-
   <!-- Ad Popup -->
   <div id="ad-popup" class="ad-popup">
     <div class="ad-content">
@@ -343,6 +338,15 @@
       <h2>Special Offer!</h2>
       <p>Get 25% off on our services. Limited time only!</p>
       <a href="#" class="ad-button">Claim Offer</a>
+    </div>
+  </div>
+
+  <!-- WhatsApp Button -->
+  <div class="video_bt">
+    <div class="play_icon">
+      <a href="https://api.whatsapp.com/send?phone=917708195859&text=Hi%20This%20Athi%20Xerox%20any%20help%20you" target="_blank">
+        <img id="whatsapp-icon" src="https://cdn-icons-png.flaticon.com/512/124/124034.png" alt="WhatsApp">
+      </a>
     </div>
   </div>
 
@@ -384,14 +388,23 @@
       dots[n].classList.add("active");
     }
 
-    window.onload = function () {
-      showSlidesAuto();
-      document.getElementById('ad-popup').style.display = 'flex';
-    }
-
     function closeAdPopup() {
       document.getElementById('ad-popup').style.display = 'none';
     }
+
+    window.onload = function () {
+      showSlidesAuto();
+      document.getElementById('ad-popup').style.display = 'flex';
+    };
+
+    // WhatsApp icon animation
+    const whatsappIcon = document.getElementById("whatsapp-icon");
+    whatsappIcon.addEventListener("click", function () {
+      this.classList.add("clicked");
+      setTimeout(() => {
+        this.classList.remove("clicked");
+      }, 300);
+    });
   </script>
 
 </body>

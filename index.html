@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Xerox Shop</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
@@ -18,6 +18,10 @@
       justify-content: space-between;
       flex-wrap: wrap;
       align-items: center;
+    }
+
+    .top-bar a:hover {
+      color: #ff4400;
     }
 
     .contact-info,
@@ -51,17 +55,36 @@
     }
 
     .nav-links a {
+      position: relative;
       text-decoration: none;
       color: #333;
       padding: 8px 12px;
-      border-radius: 5px;
-      transition: background-color 0.3s;
+      transition: color 0.3s;
     }
 
-    .nav-links a.active,
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background-color: #ff4400;
+      transition: width 0.3s ease-in-out;
+    }
+
     .nav-links a:hover {
+      color: #ff4400;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-links a.active {
       background-color: #ff4400;
       color: white;
+      border-radius: 5px;
     }
 
     .nav-contact .contact-button {
@@ -157,6 +180,10 @@
       z-index: 999;
     }
 
+    .play_icon {
+      position: relative;
+    }
+
     .play_icon img {
       width: 60px;
       transition: transform 0.3s;
@@ -186,6 +213,7 @@
         transform: translate(-50%, -50%) scale(1);
         opacity: 1;
       }
+
       100% {
         transform: translate(-50%, -50%) scale(1.4);
         opacity: 0;
@@ -239,7 +267,8 @@
     <div class="social-icons">
       <a href="#"><i class="fab fa-instagram"></i></a>
       <a href="#"><i class="fab fa-facebook-f"></i></a>
-      <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      <a href="https://api.whatsapp.com/send?phone=917708195859&text=Hi%20Athi Xerox%20Shop"><i
+          class="fa-brands fa-whatsapp"></i></a>
     </div>
   </div>
 

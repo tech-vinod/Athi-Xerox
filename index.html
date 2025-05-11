@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -110,6 +111,45 @@
       width: 100%;
       height: 60vh;
       object-fit: cover;
+    }
+
+    .slide-content {
+      position: absolute;
+      top: 80%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: white;
+      z-index: 10;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 0px 25px;
+      border-radius: 8px;
+      max-width: 100%;
+    }
+
+    .slide-content h2 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .slide-content p {
+      font-size: 1.1rem;
+      margin-bottom: 15px;
+    }
+
+
+    .slide-button {
+      padding: 10px 20px;
+      background-color: #ff4400;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .slide-button:hover {
+      background-color: #e03e00;
     }
 
     .dots-container {
@@ -257,6 +297,7 @@
     }
   </style>
 </head>
+
 <body>
 
   <div class="top-bar">
@@ -292,12 +333,27 @@
   <div class="slideshow-container">
     <div class="slide fade">
       <img src="slide-1.jpg" alt="Slide 1">
+      <div class="slide-content">
+        <h2>Fast Printing Services</h2>
+        <p>Get your documents printed quickly with top quality.</p>
+        <a href="#" class="slide-button">See More</a>
+      </div>
     </div>
     <div class="slide fade">
       <img src="slide-2.jpg" alt="Slide 2">
+      <div class="slide-content">
+        <h2>Binding & Laminating</h2>
+        <p>Professional finishing for reports, projects, and more.</p>
+        <a href="#" class="slide-button">See More</a>
+      </div>
     </div>
     <div class="slide fade">
       <img src="slide-3.jpg" alt="Slide 3">
+      <div class="slide-content">
+        <h2>Color & B/W Copies</h2>
+        <p>Affordable and reliable copy services in town.</p>
+        <a href="#" class="slide-button">See More</a>
+      </div>
     </div>
   </div>
   <div class="dots-container">
@@ -379,4 +435,5 @@
   </script>
 
 </body>
+
 </html>
